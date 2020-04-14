@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Max price per day: 200€"
+        android:textSize="24dp"/>
+
+    <SeekBar
+        android:id="@+id/priceSliderView"
+        android:layout_below="@id/priceTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:min="10"
+        android:max="200"
+        android:progress="200"/>
+
+    <CheckBox
+        android:id="@+id/autoOpenCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/priceSliderView"
+        android:text="Remote Car Opening System?" />
+
+    <TextView
+        android:id="@+id/colorTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Car color picker:"
+        android:layout_below="@id/autoOpenCheckbox"
+        android:textSize="18dp"/>
+
+    <Spinner
+        android:id="@+id/colorSpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/colorTextView"/>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/colorSpinner"
+        android:paddingTop="15dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/nocarTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/colorSpinner"
+        android:text="No car found with this filter!"
+        android:textSize="18dp"
+        android:visibility="gone"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_below="@id/colorSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

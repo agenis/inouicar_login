@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">inouicar_login</string>
+    <string-array name="color_picker_array">
+        <item></item>
+        <item>white</item>
+        <item>black</item>
+        <item>red</item>
+        <item>brown</item>
+        <item>blue</item>
+    </string-array>
+</resources>
