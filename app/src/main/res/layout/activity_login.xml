@@ -74,13 +74,25 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="55dp"/>
+
     <TextView
         android:id="@+id/Link_register"
-        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/Btn_login"
+        android:layout_marginTop="-4dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:gravity="center"
+        android:text="New User? Register here"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/Link_register_sinda"
+        android:gravity="center"
+        android:layout_below="@id/Link_register"
         android:backgroundTint="@color/colorPrimary"
         android:textColor="@android:color/white"
-        android:text="New User? Register here"
+        android:text="Link to unused Sinda registr.form"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

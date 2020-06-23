@@ -11,9 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.controller.CatalogueActivity"></activity>
+        <activity android:name=".app.controller.CatalogueActivity" />
         <activity android:name=".app.controller.HomeActivity" />
         <activity android:name=".app.controller.RegisterActivity" />
+        <activity android:name=".app.controller.unused_car_reservation" />
+        <activity android:name=".app.controller.unused_car_selection" />
+        <activity android:name=".app.controller.unused_choix_pro_particulier" />
+        <activity android:name=".app.controller.unused_registration_form" />
         <activity android:name=".app.controller.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

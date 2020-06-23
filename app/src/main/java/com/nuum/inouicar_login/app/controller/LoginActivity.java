@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar loading;
     private static String URL_LOGIN = "http://spajkpw.cluster029.hosting.ovh.net/api/users/signin/";
     //private static String URL_LOGIN = "http://localhost/inouicar/www/api/users/signin/";
+    // video tuto https://www.youtube.com/watch?v=yS5n40h4Wlg
     // on peut tester marc@yopmail.com et 123456
 
     @Override

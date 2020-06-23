@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,7 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.RecursiveAction;
 
-public class CatalogueActivity extends AppCompatActivity {
+public class CatalogueActivity extends AppCompatActivity implements CarAdapter.OnCarListener {
 
     RecyclerView recyclerView;
     CarAdapter adapter;
@@ -58,7 +59,7 @@ public class CatalogueActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogue);
 
-        adapter = new CarAdapter(CatalogueActivity.this, carList);
+        adapter = new CarAdapter(CatalogueActivity.this, carList, this);
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -98,7 +99,9 @@ public class CatalogueActivity extends AppCompatActivity {
                 recyclerView.setVisibility(View.VISIBLE);
                 query_pricemax = "&has_price_less_than=" + MaxPrice;
                 carList.clear();
+                ///////////
                 loadCars();
+                ///////////
                 if (carList.size() == 0){
                     nocarTextView.setVisibility(View.VISIBLE);
                 }
@@ -147,6 +150,15 @@ public class CatalogueActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onCarClick(int position) {
+        carList.get(position);
+        Intent intent = new Intent(CatalogueActivity.this, unused_car_reservation.class);
+        intent.putExtra("clicked_car_brand", carList.get(position).getBrand());
+        intent.putExtra("clicked_car_color", carList.get(position).getColor());
+        intent.putExtra("clicked_car_model", carList.get(position).getModel());
+        startActivity(intent);
+    }
 }
 
 

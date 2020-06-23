@@ -15,17 +15,19 @@ import com.nuum.inouicar_login.R;
 import java.util.List;
 
 /*
-* RecyclerView.Adapter
-* RecyclerView.ViewHolder
+ * RecyclerView.Adapter
+ * RecyclerView.ViewHolder
  */
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder>{
 
     private Context mCtx;
     private List<Car> carList;
+    private OnCarListener mOnCarListener;
 
-    public CarAdapter(Context mCtx, List<Car> carList) {
+    public CarAdapter(Context mCtx, List<Car> carList, OnCarListener onCarListener) {
         this.mCtx = mCtx;
         this.carList = carList;
+        this.mOnCarListener = onCarListener;
     }
 
     @NonNull
@@ -33,7 +35,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder>{
     public CarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(mCtx).inflate(R.layout.list_layout, null);
-        return new CarViewHolder(view);
+        return new CarViewHolder(view, mOnCarListener);
 
     }
 
@@ -54,20 +56,36 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder>{
         return this.carList.size();
     }
 
-    class CarViewHolder extends RecyclerView.ViewHolder {
+    class CarViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView imageView;
         TextView textViewBrand, textViewModel, textViewColor, textViewPrice_per_day;
 
-        public CarViewHolder(@NonNull View itemView) {
+        OnCarListener onCarListener;
+
+        public CarViewHolder(@NonNull View itemView, OnCarListener onCarListener) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
             textViewBrand = itemView.findViewById(R.id.textViewBrand);
             textViewColor = itemView.findViewById(R.id.textViewColor);
             textViewModel = itemView.findViewById(R.id.textViewModel);
             textViewPrice_per_day = itemView.findViewById(R.id.textViewPrice_per_day);
+            this.onCarListener = onCarListener;
 
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            onCarListener.onCarClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnCarListener{
+        // video tuto pour gerer le clic sur un item de la liste de voiture: https://www.youtube.com/watch?v=69C1ljfDvl0
+        // ici comme c'est une interface on détaille pas la méthode on met juste son nom:
+        // elle est implementee dans CatalogueActivity
+        void onCarClick(int position);
     }
 
 }
