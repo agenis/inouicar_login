@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email, password;
     private Button Btn_login;
     private TextView Link_register;
+    private TextView Link_register_sinda;
     private ProgressBar loading;
     private static String URL_LOGIN = "http://spajkpw.cluster029.hosting.ovh.net/api/users/signin/";
     //private static String URL_LOGIN = "http://localhost/inouicar/www/api/users/signin/";
@@ -48,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         Btn_login = findViewById(R.id.Btn_login);
         Link_register = findViewById(R.id.Link_register);
+        Link_register_sinda = findViewById(R.id.Link_register_sinda);
 
         Btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +77,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+        });
+        Link_register_sinda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, unused_registration_form.class));
             }
         });
     }
